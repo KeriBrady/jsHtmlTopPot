@@ -9,7 +9,18 @@
     <body>
       <h1>Top Pot Donut Production Forecast by Store Location</h1>
 
-      <button id="calculate">Calculate</button>
+      <h2>Please select your location.</h2>
+      <form action="">
+        <select name="stores">
+          <option value="ballard">Ballard</option>
+          <option value="capitolHill">Capitol Hill</option>
+          <option value="downtown">Downtown</option>
+          <option value="southLakeUnion">South Lake Union</option>
+          <option value="wedgewood">Wedgewood</option>
+        </select>
+      </form>
+
+      <button id="submit">Submit</button>
 
       <h2>Downtown</h2>
       <div id="downtown"></div>
@@ -44,7 +55,7 @@
               footTraffic = Math.random() * (this.maxTraffic - this.minTraffic + 1) + this.minTraffic;
               hourlyDonuts = Math.floor(footTraffic * (this.percentEnter * this.donutsPurchased));
               dailyDonuts += hourlyDonuts;
-              console.log(this.name + " needs " + hourlyDonuts + " between " + hrs[i]);
+              return this.name + " needs " + hourlyDonuts + " between " + hrs[i];
             };
             console.log(this.name + " needs " + dailyDonuts + " per day.")
           };
@@ -55,12 +66,10 @@
         var southLakeUnion = new Store("South Lake Union", 180, 250,  .05,  6  );
         var wedgewood      = new Store("Wedgewood",        20,  60,   .20,  1.5);
         var ballard        = new Store("Ballard",          25,  175,  .33,  1  );
-        
-      downtown.getDonuts();
-      capitolHill.getDonuts();
-      southLakeUnion.getDonuts();
-      wedgewood.getDonuts();
-      ballard.getDonuts();
+
+        var msg = downtown.getDonuts();
+        var divDowntown = document.getElementById("downtown");
+        divDowntown.innerHTML = msg;
 
       </script>
     </body>
