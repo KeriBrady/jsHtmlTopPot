@@ -1,43 +1,33 @@
 <!doctype html>
 <html class="no-js" lang="">
-    <head>
-      <meta charset="utf-8">
-      <title>Top Pot Donut Production Forecast by Store Location</title>
-      <meta name="description" content="">
-    </head>
+  <head>
+    <meta charset="utf-8">
+    <title>Top Pot Donut Production Forecast by Store Location</title>
+    <meta name="description" content="">
+  </head>
 
-    <body>
-      <h1>Top Pot Donut Production Forecast by Store Location</h1>
+  <body>
+    <h1>Top Pot Donut Production Forecast by Store Location</h1>
 
-      <h2>Please select your location.</h2>
-      <form action="">
-        <select name="stores">
-          <option value="ballard">Ballard</option>
-          <option value="capitolHill">Capitol Hill</option>
-          <option value="downtown">Downtown</option>
-          <option value="southLakeUnion">South Lake Union</option>
-          <option value="wedgewood">Wedgewood</option>
-        </select>
-      </form>
+    <h2>Please select your location.</h2>
 
-      <button id="submit">Submit</button>
+    <form>
+      <select name="stores" id="stores">
+        <option value="ballard" id="ballard">Ballard</option>
+        <option value="capitolHill" id="capitolHill">Capitol Hill</option>
+        <option value="downtown" id="downtown">Downtown</option>
+        <option value="southLakeUnion" id="southLakeUnion">South Lake Union</option>
+        <option value="wedgewood" id="wedgewood">Wedgewood</option>
+      </select>
+      <button id="submit" type="reset">Submit</button>
+      <input type=button value="Refresh" onClick="history.go()">
+    </form> 
 
-      <h2>Downtown</h2>
-      <div id="downtown"></div>
 
-      <h2>Capitol Hill</h2>
-      <div id="capitolHill"></div>
+    <h2 id="storeHeader"></h2>
+    <div id="donutDiv"></div>
 
-      <h2>South Lake Union</h2>
-      <div id="southLakeUnion"></div>
+    <script type="text/javascript" src="javascriptTopPot.js"></script>
 
-      <h2>Wedgewood</h2>
-      <div id="wedgewood"></div>
-
-      <h2>Ballard</h2>
-      <div id="ballard"></div>
-
-      <script type="text/javascript" src="javascriptTopPot.js"></script>
-      
-    </body>
+  </body>
 </html>
