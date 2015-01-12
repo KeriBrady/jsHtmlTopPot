@@ -2,6 +2,7 @@ var buttonClick = document.getElementById("submit");
 var dropdownMenu = document.getElementById("stores");
 var storeHeader = document.getElementById("storeHeader");
 var donutDiv = document.getElementById("donutDiv");
+var refresh = document.getElementById("refresh");
 
 function displayContent(){
   //get value from drop down menu on click
@@ -60,3 +61,9 @@ var wedgewood      = new Store("Wedgewood",        20,  60,   .20,  1.5);
 var ballard        = new Store("Ballard",          25,  175,  .33,  1  );
   
 buttonClick.addEventListener('click', displayContent, false);
+refresh.addEventListener('click', function() {
+  history.go();
+}, false);
+
+
+
