@@ -1,36 +1,14 @@
-var buttonClick = document.getElementById("submit");
-var dropdownMenu = document.getElementById("stores");
-var storeHeader = document.getElementById("storeHeader");
 var donutDiv = document.getElementById("donutDiv");
-var refresh = document.getElementById("refresh");
 
 function displayContent(){
   //get value from drop down menu on click
-  dropdownMenu.value;
 
-  switch(dropdownMenu.value){
-    case "ballard":
-      var ballardMsg = ballard.getDonuts();
-      storeHeader.innerHTML = ballard.name;
-      break;
-    case "capitolHill":
-      var capitolHillMsg = capitolHill.getDonuts();
-      storeHeader.innerHTML = capitolHill.name;
-      break;
-    case "downtown":
-      var downtownMsg = downtown.getDonuts();
-      storeHeader.innerHTML = downtown.name;
-      break;
-    case "southLakeUnion":
-      var southLakeUnionMsg = southLakeUnion.getDonuts();
-      storeHeader.innerHTML = southLakeUnion.name;
-      break;
-    case "wedgewood":
-      var wedgewoodMsg = wedgewood.getDonuts();
-      storeHeader.innerHTML = wedgewood.name;
-      break;
-  }
+  var $selectedStore = storeList[$('#stores').val()];
+  $selectedStore.getDonuts();
+
+  $('#storeHeader').html($selectedStore.name);
 }
+ 
 
 function Store(name, minTraffic, maxTraffic, percentEnter, donutsPurchased) {
   this.name            = name;
@@ -54,16 +32,19 @@ function Store(name, minTraffic, maxTraffic, percentEnter, donutsPurchased) {
   };
 }
 
-var downtown       = new Store("Downtown",         80,  220,  .10,  4  );
-var capitolHill    = new Store("Capitol Hill",     5,   45,   .45,  2  );
-var southLakeUnion = new Store("South Lake Union", 180, 250,  .05,  6  );
-var wedgewood      = new Store("Wedgewood",        20,  60,   .20,  1.5);
-var ballard        = new Store("Ballard",          25,  175,  .33,  1  );
+var storeList = [
+  new Store("Ballard",          25,  175,  .33,  1  ),
+  new Store("Capitol Hill",     5,   45,   .45,  2  ),
+  new Store("Downtown",         80,  220,  .10,  4  ),
+  new Store("South Lake Union", 180, 250,  .05,  6  ),
+  new Store("Wedgewood",        20,  60,   .20,  1.5)
+];
+
+$('#submit').click(function() {
+  displayContent()
+});
   
-buttonClick.addEventListener('click', displayContent, false);
-refresh.addEventListener('click', function() {
+$('#refresh').click(function() {
   history.go();
-}, false);
-
-
+});
 
